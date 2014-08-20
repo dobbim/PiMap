@@ -54,7 +54,11 @@ $(document).ready(function() {
 	});
 	
 	var easter_egg = new Konami(function() {
-		$("body").append('<div class="konami"><img src="http://ww2.hdnux.com/photos/15/56/11/3596917/3/628x471.jpg" /></div>');
+		$("body").append('<div class="konami"><img src="http://ww2.hdnux.com/photos/15/56/11/3596917/3/628x471.jpg" /><h1>"Let it Rain"</h1></div>');
+		
+		$(".konami").click(function() {
+			$(".konami").remove();
+		});
 	});
 });
 
