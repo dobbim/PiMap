@@ -53,11 +53,10 @@ $(document).ready(function() {
 	
 	var easter_egg = new Konami(function() {
 		vex.dialog.alert({
-		  message: '<img width="400px" src="http://ww2.hdnux.com/photos/15/56/11/3596917/3/628x471.jpg" />',
+		  message: 'The Weather Queen<br/><br/><img width="400px" src="http://ww2.hdnux.com/photos/15/56/11/3596917/3/628x471.jpg" />',
 		  buttons: [
-		    $.extend({}, vex.dialog.buttons.YES, {
-		      text: 'Let it Rain'
-		    })
+		    $.extend({}, vex.dialog.buttons.YES, {text: 'Let it Rain'}),
+		    $.extend({}, vex.dialog.buttons.NO, {text: 'Keep it Sunny'})
 		  ]
 		});
 	});
