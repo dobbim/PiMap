@@ -44,21 +44,21 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 vex.defaultOptions.className = 'vex-theme-os';
 
-
-
 $(document).ready(function() {
 	$(".logo").click(function() {
 		vex.dialog.alert({
-		  message: "Created by Matt Dobbins ('18), Justin Etzine ('18), Robbie Kubiniec ('18), and Nick Thomson ('18), with the help of Jake Martin ('16)." +
-					"\n\nCreated in less than 24 hours as part of the NRB HackRPI 2014 program."
+		  message: "Created by:<ul><li>Matt Dobbins '18</li><li>Justin Etzine '18</li><li>Robbie Kubiniec '18</li><li>Nick Thomson '18</li><li><em>Mentor: Jake Martin '16</em></li></ul>Created in less than 24 hours as part of the NRB HackRPI 2014 program."
 		});
 	});
 	
 	var easter_egg = new Konami(function() {
-		$("body").append('<div class="konami"><img src="http://ww2.hdnux.com/photos/15/56/11/3596917/3/628x471.jpg" /><h1>"Let it Rain"</h1></div>');
-		
-		$(".konami").click(function() {
-			$(".konami").remove();
+		vex.dialog.alert({
+		  message: '<img width="400px" src="http://ww2.hdnux.com/photos/15/56/11/3596917/3/628x471.jpg" />',
+		  buttons: [
+		    $.extend({}, vex.dialog.buttons.YES, {
+		      text: 'Let it Rain'
+		    })
+		  ]
 		});
 	});
 });
