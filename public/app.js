@@ -42,15 +42,16 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 // ============= END GOOGLE MAPS CODE =============
 
+vex.defaultOptions.className = 'vex-theme-os';
+
+
 
 $(document).ready(function() {
-	var aboutShown = false;
 	$(".logo").click(function() {
-		if(!aboutShown) {
-			alert("Created by Matt Dobbins ('18), Justin Etzine ('18), Robbie Kubiniec ('18), and Nick Thomson ('18), with the help of Jake Martin ('16)." +
-			"\n\nCreated in less than 24 hours as part of the NRB HackRPI 2014 program.");
-			aboutShown = true;
-		}
+		vex.dialog.alert({
+		  message: "Created by Matt Dobbins ('18), Justin Etzine ('18), Robbie Kubiniec ('18), and Nick Thomson ('18), with the help of Jake Martin ('16)." +
+					"\n\nCreated in less than 24 hours as part of the NRB HackRPI 2014 program."
+		});
 	});
 	
 	var easter_egg = new Konami(function() {
