@@ -2,6 +2,8 @@
  *
  */
 
+vex.defaultOptions.className = 'vex-theme-top';
+
 // =============== GOOGLE MAPS CODE ===============
 var map;
 
@@ -29,15 +31,14 @@ google.maps.event.addDomListener(window, 'load', function() {
       mapOptions);
   map.setOptions({ styles: styles });
 
-  var num = markers.length;
-
-  for (var i = 0; i < num; i++) {
+  //Function to create a marker
+  function createMarker(pos, label) {
 	var marker = new MarkerWithLabel({
-    	position: markers[i].pos,
+    	position: pos,
     	draggable: false,
     	raiseOnDrag: false,
     	map: map,
-    	labelContent: markers[i].label,
+    	labelContent: label,
     	labelAnchor: new google.maps.Point(40, 0),
     	labelClass: "label",
      	labelStyle: {opacity: 1.0},
@@ -45,24 +46,37 @@ google.maps.event.addDomListener(window, 'load', function() {
     });
     
 	google.maps.event.addListener(marker, "click", function (e) {
+		vex.dialog.alert({
+			message: 'Name: ' + marker.labelContent,
+			buttons: [
+				$.extend({}, vex.dialog.buttons.YES, {text: 'OK'})
+			]
+		});
     });
+	
+	return marker;
+  }
+
+  var num = markers.length;
+  var allMarkers = [];
+
+  for (var i = 0; i < num; i++) {
+    allMarkers.push(createMarker(markers[i].pos, markers[i].label));
   }
 });
 
 // ============= END GOOGLE MAPS CODE =============
 
-vex.defaultOptions.className = 'vex-theme-os';
-
 $(document).ready(function() {
 	$(".logo").click(function() {
 		vex.dialog.alert({
-		  message: "Created by:<ul><li>Matt Dobbins '18</li><li>Justin Etzine '18</li><li>Robbie Kubiniec '18</li><li>Nick Thomson '18</li><li><em>Mentor: Jake Martin '16</em></li></ul>Created in less than 24 hours as part of the NRB HackRPI 2014 program."
+		  message: "<strong>&#x3c0;Map - Dynamic Campus Map for RPI</strong><br>Created by:<ul><li>Matt Dobbins '18</li><li>Justin Etzine '18</li><li>Robbie Kubiniec '18</li><li>Nick Thomson '18</li><li><em>Mentor: Jake Martin '16</em></li></ul>Created in less than 24 hours as part of the NRB HackRPI 2014 program."
 		});
 	});
 	
 	var easter_egg = new Konami(function() {
 		vex.dialog.alert({
-		  message: 'The Weather Queen<br/><br/><img width="400px" src="http://ww2.hdnux.com/photos/15/56/11/3596917/3/628x471.jpg" />',
+		  message: '<strong>The Weather Queen</strong><br/><br/><img width="400px" src="http://ww2.hdnux.com/photos/15/56/11/3596917/3/628x471.jpg" />',
 		  buttons: [
 		    $.extend({}, vex.dialog.buttons.YES, {text: 'Let it Rain'}),
 		    $.extend({}, vex.dialog.buttons.NO, {text: 'Keep it Sunny'})
