@@ -32,7 +32,7 @@ google.maps.event.addDomListener(window, 'load', function() {
   map.setOptions({ styles: styles });
 
   //Function to create a marker
-  function createMarker(pos, label) {
+  function createMarker(pos, label, desc) {
 	var marker = new MarkerWithLabel({
     	position: pos,
     	draggable: false,
@@ -42,12 +42,13 @@ google.maps.event.addDomListener(window, 'load', function() {
     	labelAnchor: new google.maps.Point(40, 0),
     	labelClass: "label",
      	labelStyle: {opacity: 1.0},
-     	icon: {}
+     	icon: {},
+		description: desc
     });
     
 	google.maps.event.addListener(marker, "click", function (e) {
 		vex.dialog.alert({
-			message: 'Name: ' + marker.labelContent,
+			message: '<strong>' + marker.labelContent + '</strong>' + ((marker.description !== '') ? '<br>' + marker.description : ''),
 			buttons: [
 				$.extend({}, vex.dialog.buttons.YES, {text: 'OK'})
 			]
@@ -61,7 +62,7 @@ google.maps.event.addDomListener(window, 'load', function() {
   var allMarkers = [];
 
   for (var i = 0; i < num; i++) {
-    allMarkers.push(createMarker(markers[i].pos, markers[i].label));
+    allMarkers.push(createMarker(markers[i].pos, markers[i].label, markers[i].desc));
   }
 });
 
