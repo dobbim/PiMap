@@ -52,7 +52,7 @@ var markers = [
 	{pos: new google.maps.LatLng(42.72742237,  -73.67506206), label: "Nugent Hall"},
 	{pos: new google.maps.LatLng(42.72779673,  -73.68164957), label: "Parking Garage (Faculty/Staff)"},
 	{pos: new google.maps.LatLng(42.73682404,  -73.66372168), label: "Patroon Manor"},
-	{pos: new google.maps.LatLng(42.73289963,  -73.67691278), label: "2021 Peoples Avenue"},
+	{pos: new google.maps.LatLng(42.73299003,  -73.67691278), label: "2021 Peoples Avenue"},
 	{pos: new google.maps.LatLng(42.73122104,  -73.6832723),  label: "Pittsburgh Building"},
 	{pos: new google.maps.LatLng(42.72919957,  -73.67766462), label: "Playhouse"},
 	{pos: new google.maps.LatLng(42.72213379,  -73.67940724), label: "Polytechnic Residence Commons"},
