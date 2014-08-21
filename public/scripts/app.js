@@ -85,7 +85,15 @@ google.maps.event.addDomListener(window, 'load', function() {
 $(document).ready(function() {
 	$(".logo").click(function() {
 		vex.dialog.alert({
-		  message: "<strong>&#x3c0;Map - Dynamic Campus Map for RPI</strong><br>Created by:<ul><li>Matt Dobbins '18</li><li>Justin Etzine '18</li><li>Robbie Kubiniec '18</li><li>Nick Thomson '18</li><li><em>Mentor: Jake Martin '16</em></li></ul>Created in less than 24 hours as part of the NRB HackRPI 2014 program."
+		  message: "<strong>&#x3c0;Map - Dynamic Campus Map for RPI</strong>" +
+			"<br>Created by:<ul>" +
+			"<li><a href=\"https://github.com/dobbim\">Matt Dobbins '18</a></li>" + 
+			"<li><a href=\"https://github.com/justetz\">Justin Etzine '18</a></li>" + 
+			"<li><a href=\"https://github.com/rkubiniec\">Robbie Kubiniec '18</a></li>" + 
+			"<li><a href=\"https://github.com/nthomsn\">Nick Thomson '18</a></li>" + 
+			"<li><em>Mentor: <a href=\"https://github.com/jacobjiggler\">Jake Martin '16</a></em></li></ul>" + 
+			"Created in less than 24 hours as part of the NRB HackRPI 2014 program.<br><br>" + 
+			"This project is released under the <a href=\"http://opensource.org/licenses/MIT\">Open-Source MIT license.</a>"
 		});
 	});
 	
