@@ -25,6 +25,7 @@ google.maps.event.addDomListener(window, 'load', function() {
   var styles = [
     {"featureType": "transit.station.bus", "stylers": [{ "visibility": "off" }]},
     {"featureType": "poi", "stylers": [{ "visibility": "off" }]},
+    {"featureType": "poi.school", "elementType": "geometry", "stylers": [{ "color": "#F5D6CC" }, { "visibility": "on"}]},
     {"featureType": "landscape.man_made", "elementType": "geometry.stroke", "stylers": [{ "visibility": "on" }, { "color": "#000000"}]}
   ];
   map = new google.maps.Map(document.getElementById('map-canvas'),
