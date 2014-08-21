@@ -8,7 +8,8 @@ vex.defaultOptions.className = 'vex-theme-top';
 var map;
 
 google.maps.event.addDomListener(window, 'load', function() {
-  var mapOptions = {
+  // Map Style
+  map = new google.maps.Map(document.getElementById('map-canvas'), {
     // Zoom and Location
     zoom: 17,
     center: new google.maps.LatLng(42.730174, -73.678784),
@@ -20,17 +21,16 @@ google.maps.event.addDomListener(window, 'load', function() {
     streetViewControl: false,
     overviewMapControl: false,
     minZoom: 17
-  };
-  // Map Style
-  var styles = [
-    {"featureType": "transit.station.bus", "stylers": [{ "visibility": "off" }]},
+  });
+
+  map.setOptions({ styles: [
+	{"featureType": "transit.station.bus", "stylers": [{ "visibility": "off" }]},
     {"featureType": "poi", "stylers": [{ "visibility": "off" }]},
     {"featureType": "poi.school", "elementType": "geometry", "stylers": [{ "color": "#F5D6CC" }, { "visibility": "on"}]},
     {"featureType": "landscape.man_made", "elementType": "geometry.stroke", "stylers": [{ "visibility": "on" }, { "color": "#000000"}]}
-  ];
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
-  map.setOptions({ styles: styles });
+  ]});
+  
+  var bounds = new google.maps.LatLngBounds();
 
   //Function to create a marker
   function createMarker(pos, label, desc) {
@@ -46,7 +46,9 @@ google.maps.event.addDomListener(window, 'load', function() {
      	icon: {},
 		description: desc
     });
-    
+
+    bounds.extend(pos);
+	
 	google.maps.event.addListener(marker, "click", function (e) {
 		vex.dialog.alert({
 			message: '<strong>' + marker.labelContent + '</strong>' + ((marker.description !== '') ? '<br>' + marker.description : ''),
@@ -58,6 +60,8 @@ google.maps.event.addDomListener(window, 'load', function() {
 	
 	return marker;
   }
+
+  map.fitBounds(bounds);
 
   var num = markers.length;
   var allMarkers = [];
