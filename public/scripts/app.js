@@ -29,8 +29,6 @@ google.maps.event.addDomListener(window, 'load', function() {
     {"featureType": "poi.school", "elementType": "geometry", "stylers": [{ "color": "#F5D6CC" }, { "visibility": "on"}]},
     {"featureType": "landscape.man_made", "elementType": "geometry.stroke", "stylers": [{ "visibility": "on" }, { "color": "#000000"}]}
   ]});
-  
-  var bounds = new google.maps.LatLngBounds();
 
   //Function to create a marker
   function createMarker(pos, label, desc) {
@@ -46,8 +44,6 @@ google.maps.event.addDomListener(window, 'load', function() {
      	icon: {},
 		description: desc
     });
-
-    bounds.extend(pos);
 	
 	google.maps.event.addListener(marker, "click", function (e) {
 		vex.dialog.alert({
@@ -60,8 +56,6 @@ google.maps.event.addDomListener(window, 'load', function() {
 	
 	return marker;
   }
-
-  map.fitBounds(bounds);
 
   var num = markers.length;
   var allMarkers = [];
@@ -89,7 +83,8 @@ google.maps.event.addDomListener(window, 'load', function() {
 $(document).ready(function() {
 	$(".logo").click(function() {
 		vex.dialog.alert({
-		  message: "<strong>&#x3c0;Map - Dynamic Campus Map for RPI</strong>" +
+		  message: "<strong>&#x3c0;Map - Dynamic Campus Map for RPI</strong><br>" +
+			"Simplifying your RPI travels, one location at a time.<br>" + 
 			"<br>Created by:<ul>" +
 			"<li><a href=\"https://github.com/dobbim\">Matt Dobbins '18</a></li>" + 
 			"<li><a href=\"https://github.com/justetz\">Justin Etzine '18</a></li>" + 
@@ -97,7 +92,8 @@ $(document).ready(function() {
 			"<li><a href=\"https://github.com/nthomsn\">Nick Thomson '18</a></li>" + 
 			"<li><em>Mentor: <a href=\"https://github.com/jacobjiggler\">Jake Martin '16</a></em></li></ul>" + 
 			"Created in less than 24 hours as part of the NRB HackRPI 2014 program.<br><br>" + 
-			"This project is released under the <a href=\"http://opensource.org/licenses/MIT\">Open-Source MIT license.</a>"
+			"This project is released under the <a href=\"http://opensource.org/licenses/MIT\">Open-Source MIT license.</a><br>" +
+			"View this project on <a href=\"http://github.com/dobbim/pimap\">GitHub</a>."
 		});
 	});
 	
