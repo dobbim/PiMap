@@ -64,6 +64,19 @@ google.maps.event.addDomListener(window, 'load', function() {
   for (var i = 0; i < num; i++) {
     allMarkers.push(createMarker(markers[i].pos, markers[i].label, markers[i].desc));
   }
+
+  // Detect changes in map type
+  google.maps.event.addListener(map, "maptypeid_changed", function () {
+    // Change css to "label" or "labelSat"
+    for (var i = 0; i < num; i++) {
+      if (map.getMapTypeId() == google.maps.MapTypeId.HYBRID) {
+        allMarkers[i].labelClass = "labelSat";
+      } else {
+        allMarkers[i].labelClass = "label";
+      }
+      allMarkers[i].label.draw();
+    }
+  });
 });
 
 // ============= END GOOGLE MAPS CODE =============
