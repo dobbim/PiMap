@@ -1,11 +1,16 @@
-πMap - Dynamic Campus Map for RPI
+πMap
+====
+
+Simplifying your RPI travels, one location at a time.
 
 Created by:
-
-    Matt Dobbins '18
-    Justin Etzine '18
-    Robbie Kubiniec '18
-    Nick Thomson '18
-    Mentor: Jake Martin '16
+* Matt Dobbins '18
+* Justin Etzine '18
+* Robbie Kubiniec '18
+* Nick Thomson '18
+* Mentor: Jake Martin '16
 
 Created in less than 24 hours as part of the NRB HackRPI 2014 program.
+
+This software is released under the Open-Source MIT License.
+See the license file for the full license.
